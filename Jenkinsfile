@@ -15,6 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "Hello World!"
+        print "STRING: " + params.STRING;
       }
     }
   }
