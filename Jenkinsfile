@@ -1,14 +1,13 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'STRING1')
-    string(name: 'STRING2', description: 'With Description')
-    string(name: 'STRING3', description: 'With Default Value', defaultValue: 'Hello World')
+    choice(name: 'BRANCH', description: 'Branch', choices: 'master\ndevelop')
+    credentials(name: 'CREDENTIAL', description: 'Credential', credentialType: "Username with password", required: true)
   }
   stages {
     stage('Build') {
       steps {
-        echo "STRING1: ${params.STRING1 \n STRING2: ${params.STRING2} \n STRING3: ${params.STRING3}"
+        echo "BRANCH: ${params.BRANCH \n CREDENTIAL: ${params.CREDENTIAL}"
       }
     }
   }
