@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "Hello World!"
-        echo "STRING: ${params.STRING}"
+        echo "STRING: ${params.STRING} \n TEXT: ${params.TEXT} \n PASSWORD: ${params.PASSWORD} \n BOOLEAN: ${params.BOOLEAN} \n CHOICE: ${params.CHOICE} \n "
       }
     }
   }
