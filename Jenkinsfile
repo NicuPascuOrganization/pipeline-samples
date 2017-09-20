@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "STRING1: ${params.STRING1 \n STRING2: ${params.STRING2} \n STRING3: ${params.STRING3}"
+        echo "STRING1: ${params.STRING1} \n STRING2: ${params.STRING2} \n STRING3: ${params.STRING3}"
       }
     }
   }
