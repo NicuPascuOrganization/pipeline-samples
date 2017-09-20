@@ -1,14 +1,14 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'STRING1_NO_DESC')
-    string(name: 'STRING2_WITH_DESC', description: 'With Description')
-    string(name: 'STRING3_WITH_DEFAULT', description: 'With Default Value', defaultValue: 'Hello World')
+    string(name: 'STRING1')
+    string(name: 'STRING2', description: 'With Description')
+    string(name: 'STRING3', description: 'With Default Value', defaultValue: 'Hello World')
   }
   stages {
     stage('Build') {
       steps {
-        echo "Hello World!"
+        echo "STRING1: ${params.STRING1 \n STRING2: ${params.STRING2} \n STRING3: ${params.STRING3}"
       }
     }
   }
