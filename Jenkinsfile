@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "BRANCH: ${params.BRANCH \n CREDENTIAL: ${params.CREDENTIAL}"
+        echo "BRANCH: ${params.BRANCH} \n CREDENTIAL: ${params.CREDENTIAL}"
       }
     }
   }
