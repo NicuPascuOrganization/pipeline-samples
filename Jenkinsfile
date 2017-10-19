@@ -6,10 +6,15 @@ pipeline {
         echo 'Hello...'
         sleep 15
         echo '... World!'
-        ws(dir: 'workspacedir') {
-          echo 'hello workspace'
+        ws(dir: 'ws1') {
+          echo 'hello workspace 1'
         }
         
+        ws(dir: 'ws2') {
+          echo 'hello workspace 2'
+        }
+        
+        echo 'Finish'
       }
     }
   }
