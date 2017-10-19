@@ -3,9 +3,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo "Hello..."
+        echo 'Hello...'
         sleep 300
-        echo "... World!"
+        echo '... World!'
+        ws(dir: 'workspacedir') {
+          echo 'hello workspace'
+        }
+        
       }
     }
   }
