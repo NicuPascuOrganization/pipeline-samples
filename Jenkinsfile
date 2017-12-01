@@ -3,15 +3,15 @@ pipeline {
   stages {
     stage('One') {
       steps {
-        sh 'echo \'AAAAAA\'; ping -c 5 localhost'
-        sh 'echo \'BBBBBB\'; ping -c 5 localhost'
-        sh 'echo \'CCCCCC\'; ping -c 20 localhost'
         retry(count: 5) {
           echo 'DDDDDD'
           echo 'EEEEEE'
           echo 'FFFFFF'
         }
         
+        sh 'echo \'AAAAAA\'; ping -c 5 localhost'
+        sh 'echo \'BBBBBB\'; ping -c 5 localhost'
+        sh 'echo \'CCCCCC\'; ping -c 20 localhost'
       }
     }
     stage('Two') {
