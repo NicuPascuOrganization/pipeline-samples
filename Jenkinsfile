@@ -16,6 +16,7 @@ pipeline {
         sh 'echo \'AAAAAA\'; ping -c 5 localhost'
         sh 'echo \'BBBBBB\'; ping -c 5 localhost'
         sh 'echo \'CCCCCC\'; ping -c 5 localhost'
+        retry(count: 7)
       }
     }
     stage('Two') {
