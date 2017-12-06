@@ -8,15 +8,17 @@ pipeline {
           echo 'EEEEEE'
           echo 'FFFFFF'
           timeout(time: 30) {
-            echo 'ZZZZZZ'
+            sh 'echo \'BBBBBB\'; ping -c 5 localhost'
           }
           
+          echo 'ZZZZZZ'
         }
         
         sh 'echo \'AAAAAA\'; ping -c 5 localhost'
-        sh 'echo \'BBBBBB\'; ping -c 5 localhost'
-        sh 'echo \'CCCCCC\'; ping -c 5 localhost'
-        retry(count: 7)
+        retry(count: 7) {
+          sh 'echo \'CCCCCC\'; ping -c 5 localhost'
+        }
+        
       }
     }
     stage('Two') {
