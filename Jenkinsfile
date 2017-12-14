@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Downstream') {
       parallel {
-        stage('Down Alpha')
+        stage('Down Alpha') {
           steps {
             build 'downstream1' 
           }
