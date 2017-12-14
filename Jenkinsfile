@@ -7,14 +7,18 @@ pipeline {
       }
     }
     stage('Downstream') {
-      parallel(
-        downstream1: {
-          build 'downstream1' 
-        },
-        downstream2: {
-          build 'downstream2' 
+      parallel {
+        stage('Down Alpha')
+          steps {
+            build 'downstream1' 
+          }
         }
-      )
+        stage('Down Beta') {
+          steps {
+            build 'downstream2' 
+          }
+        }
+      }
     }
   }
 }
