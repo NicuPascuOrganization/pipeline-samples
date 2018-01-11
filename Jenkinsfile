@@ -7,11 +7,11 @@ pipeline {
           echo 'DDDDDD'
           echo 'EEEEEE'
           echo 'FFFFFF'
+          echo 'ZZZZZZ'
           timeout(time: 30) {
             sh 'echo \'BBBBBB\'; ping -c 5 localhost'
           }
           
-          echo 'ZZZZZZ'
         }
         
         sh 'echo \'AAAAAA\'; ping -c 5 localhost'
