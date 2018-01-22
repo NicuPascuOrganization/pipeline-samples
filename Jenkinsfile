@@ -1,15 +1,31 @@
 pipeline {
-    agent any
-    stages {
-        stage('Stage Long') {
-            steps {
-                sh 'echo "This is a very long step description. The intent of this step description is to be so long that it would cause the text to wrap. So we will just keep adding more and more text until that happens."'
-            }
-        }
-        stage('Stage Short') {
-            steps {
-                sh 'echo "Hello World"'
-            }
-        }
+  agent any
+  stages {
+    stage('Make a huge long string') {
+      steps {
+        sh 'for i in `seq 1 100`; do cat /dev/urandom | env LC_CTYPE=c tr -dc \\\'[:alpha:]\\\' | head -c 50000; done'
+      }
     }
+  }
+  post {
+    always {
+      echo 'ALWAYS --> Runs all the time.'
+      deleteDir()
+      
+    }
+    
+    success {
+      echo 'SUCCESS --> Whatever we did, it worked. Yay!'
+      
+    }
+    
+    failure {
+      echo 'FAILURE --> Failed. Womp womp.'
+      
+    }
+    
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+  }
 }
