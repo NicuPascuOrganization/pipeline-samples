@@ -1,19 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Example') {
       steps {
-        post() {
-          always() {
-            script {
-              def response = input message: 'Do you want to undeploy UAT environment?'
-            }
-            
-          }
-          
-        }
-        
+        echo 'Hello World'
       }
     }
+  }
+  post {
+    always {
+      script {
+        def response = input message: 'Do you want to undeploy UAT environment?'
+      }
+      
+      
+    }
+    
   }
 }
