@@ -14,7 +14,10 @@ pipeline {
     }
     
     success {
-      echo 'Success'
+      script {
+        def response = input message: 'Success - Do you want to undeploy UAT environment?'
+      }
+      
       
     }
     
