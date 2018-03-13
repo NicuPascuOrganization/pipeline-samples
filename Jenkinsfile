@@ -8,14 +8,10 @@ pipeline {
     }
   }
   post {
-    failure {
-      echo 'Failure'
-      
-    }
-    
-    success {
+    always {
+      echo 'Hello World'
       script {
-        def response = input message: 'Success - Do you want to undeploy UAT environment?'
+        def response = input message: 'Do you want to undeploy UAT environment?'
       }
       
       
