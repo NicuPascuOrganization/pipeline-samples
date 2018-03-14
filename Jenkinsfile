@@ -9,7 +9,10 @@ pipeline {
   }
   post {
     always {
-      echo 'Hello World from post'
+      script {
+        echo 'Hello World from post'
+      }
+      
       
     }
     
