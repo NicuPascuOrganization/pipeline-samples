@@ -1,28 +1,55 @@
 pipeline {
   agent any
   stages {
-    stage('Example') {
+    stage('Stage 1') {
       steps {
-        echo 'Hello World'
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 2') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 3') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 4') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 5') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 6') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 7') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 8') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 9') {
+      steps {
+        sh 'sleep 20'
+      }
+    }
+    stage('Stage 10') {
+      steps {
+        sh 'sleep 20'
       }
     }
   }
-  post {
-    always {
-      echo 'Hello World from post'
-      input(message: 'User input required', ok: 'Engage!', parameters: [
-                  string(name: 'STRING', description: 'String Param', defaultValue: 'Hello'),
-                  text(name: 'TEXT', description: 'Text Param', defaultValue: 'This is a\nmulti line string'),
-                  password(name: 'PASSWORD', description: 'Password Param', defaultValue: 'foo'),
-                  booleanParam(name: 'BOOLEAN', description: 'Boolean Param', defaultValue: false),
-                  choice(
-                      name: 'CHOICE',
-                      description: 'Choice Param',
-                      choices: 'master\ndevelop\nrelease-1.0\nrelease-2.0'
-                    )
-                  ])
-          
-        }
-        
-      }
-    }
+}
