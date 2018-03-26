@@ -1,9 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Run Tests') {
       steps {
-        echo "Hello World!"
+        bat 'exit 1'
+      }
+    }
+    stage('Deploy') {
+      parallel {
+        stage('Dev') {
+          when {
+            branch 'master'
+          }
+          steps {
+            echo 'hello master'
+          }
+        }
+        stage('QA') {
+          steps {
+            echo 'hello stable'
+          }
+        }
       }
     }
   }
