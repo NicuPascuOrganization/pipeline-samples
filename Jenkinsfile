@@ -2,13 +2,31 @@ pipeline {
   agent any
   stages {
     stage('First') {
-      steps {
-        bat 'exit 1'
+      parallel {
+        stage('Fail Step') {
+          steps {
+            bat 'exit 1'
+          }
+        }
+        stage('Success Step') {
+          steps {
+            echo 'hello stable'
+          }
+        }
       }
     }
     stage('Second') {
-      steps {
-        echo 'hello stable'
+      parallel {
+        stage('Fail Step') {
+          steps {
+            bat 'exit 1'
+          }
+        }
+        stage('Success Step') {
+          steps {
+            echo 'hello stable'
+          }
+        }
       }
     }
   }
