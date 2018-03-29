@@ -1,10 +1,40 @@
 pipeline {
-  agent any
+  agent {
+    label '!master'
+  }
   stages {
-    stage('Build') {
+    stage('Some stage') {
       steps {
-        echo "Hello World!"
+        echo 'SOME MAIN STAGE'
       }
     }
+    stage('Some stage 2') {
+      steps {
+        echo 'SOME MAIN STAGE'
+      }
+    }
+    stage('Some stage 3') {
+      steps {
+        echo 'SOME MAIN STAGE'
+      }
+    }
+  }
+  post {
+    always {
+      script {
+        echo "THIS IS POST TRIGGER STAGE"
+      }
+      
+      
+    }
+    
+    success {
+      script {
+        echo "THIS IS SUCCESS"
+      }
+      
+      
+    }
+    
   }
 }
