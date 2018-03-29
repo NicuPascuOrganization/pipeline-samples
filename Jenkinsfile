@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Some stage 2') {
       steps {
-        echo 'SOME MAIN STAGE'
+        bat 'exit 1'
       }
     }
     stage('Some stage 3') {
