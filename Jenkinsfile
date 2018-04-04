@@ -9,7 +9,7 @@ pipeline {
         
         script {
           input(message: 'User input required\nSecond line', ok: 'Engage!', parameters: [
-            string(name: 'STRING', description: 'String Param', defaultValue: 'Hello'),
+            string(name: 'STRING', description: 'String Param\nSecond Line', defaultValue: 'Hello'),
             text(name: 'TEXT', description: 'Text Param', defaultValue: 'This is a\nmulti line string'),
             password(name: 'PASSWORD', description: 'Password Param', defaultValue: 'foo'),
             booleanParam(name: 'BOOLEAN', description: 'Boolean Param', defaultValue: false),
