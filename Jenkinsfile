@@ -8,8 +8,17 @@ pipeline {
         }
         
         script {
-          def response = input message: 'User input required',
-          parameters: [choice(name: 'Tag on Docker Hub', choices: 'no\n\nyes', description: 'Choose "yes" if you want to\ndeploy this build')]
+          input(message: 'User input required', ok: 'Engage!', parameters: [
+            string(name: 'STRING', description: 'String Param', defaultValue: 'Hello'),
+            text(name: 'TEXT', description: 'Text Param', defaultValue: 'This is a\nmulti line string'),
+            password(name: 'PASSWORD', description: 'Password Param', defaultValue: 'foo'),
+            booleanParam(name: 'BOOLEAN', description: 'Boolean Param', defaultValue: false),
+            choice(
+              name: 'CHOICE',
+              description: 'Choice Param',
+              choices: 'master\ndevelop\nrelease-1.0\nrelease-2.0'
+            )
+          ])
         }
         
       }
