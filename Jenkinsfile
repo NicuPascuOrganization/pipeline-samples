@@ -4,7 +4,8 @@ pipeline {
     stage('Build Parameters') {
       steps {
         script {
-          def response = input message: "Do you want/nto /n undeploy UAT environment?"
+          def response = input message: 'User input required',
+          parameters: [choice(name: 'Tag on Docker Hub', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy this build')]
         }
         
       }
