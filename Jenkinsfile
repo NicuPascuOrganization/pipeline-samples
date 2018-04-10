@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label '}'
+    }
+    
+  }
   stages {
     stage('Select version') {
       steps {
